@@ -1,0 +1,7 @@
+builders:
+  fields_generator:
+    import: "package:inpilot_code_generator/fields_builder.dart"
+    builder_factories: ["fieldBuilder"]
+    build_extensions: {".dart": [".yaml"]}
+    auto_apply: dependents
+    build_to: source
