@@ -3,14 +3,13 @@ import 'package:build/build.dart';
 import '../annotations.dart';
 import 'package:source_gen/source_gen.dart';
 
-class FieldsGenerator extends GeneratorForAnnotation<InpilotModel> {
+class FieldsGenerator extends GeneratorForAnnotation<MasonModel> {
   @override
   String generateForAnnotatedElement(
     Element element,
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    print("Here");
     if (element is! ClassElement) {
       throw InvalidGenerationSourceError(
         'Inpilot model annotation can only be applied to classes.',

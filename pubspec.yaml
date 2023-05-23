@@ -1,4 +1,4 @@
-name: inpilot_code_generator
+name: sculptor
 description: A field extractor from models for mason templates parameters.
 version: 0.0.1
 

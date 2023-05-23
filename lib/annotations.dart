@@ -1,3 +1,3 @@
-class InpilotModel {
-  const InpilotModel();
+class MasonModel {
+  const MasonModel();
 }
