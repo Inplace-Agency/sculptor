@@ -3,7 +3,7 @@ import 'package:source_gen/source_gen.dart';
 import 'package:build/build.dart';
 
 class FieldBuilder extends LibraryBuilder {
-  FieldBuilder() : super(FieldsGenerator(), generatedExtension: '.yaml');
+  FieldBuilder() : super(FieldsGenerator(), generatedExtension: '.json');
 }
 
 Builder fieldBuilder(BuilderOptions options) {

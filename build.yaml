@@ -5,7 +5,7 @@ targets:
         options:
           import: "package:sculptor/fields_builder.dart"
           builder_factories: ["fieldBuilder"]
-          build_extensions: {".dart": [".yaml"]}
+          build_extensions: {".dart": [".json"]}
           auto_apply: dependents
           build_to: source
       json_serializable:json_serializable:
