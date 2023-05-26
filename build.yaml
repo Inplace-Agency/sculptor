@@ -1,7 +1,12 @@
-builders:
-  fields_generator:
-    import: "package:sculptor/fields_builder.dart"
-    builder_factories: ["fieldBuilder"]
-    build_extensions: {".dart": [".yaml"]}
-    auto_apply: dependents
-    build_to: source
+targets:
+  $default:
+    builders:
+      fields_generator:
+        options:
+          import: "package:sculptor/fields_builder.dart"
+          builder_factories: ["fieldBuilder"]
+          build_extensions: {".dart": [".yaml"]}
+          auto_apply: dependents
+          build_to: source
+      json_serializable:json_serializable:
+        enabled: true

@@ -1,9 +1,26 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
+import 'package:sculptor/src/models/mason_params.dart';
 import '../annotations.dart';
 import 'package:source_gen/source_gen.dart';
 
 class FieldsGenerator extends GeneratorForAnnotation<MasonModel> {
+  Map<String, dynamic> generateFieldMap(FieldElement element) {
+    switch (element.name) {
+      case "id":
+        return {
+          "fieldName": element.name,
+          "id": true,
+        };
+
+      default:
+        return {
+          "fieldName": element.name,
+          element.type.toString(): true,
+        };
+    }
+  }
+
   @override
   String generateForAnnotatedElement(
     Element element,
@@ -17,16 +34,15 @@ class FieldsGenerator extends GeneratorForAnnotation<MasonModel> {
       );
     }
 
-    final buffer = StringBuffer();
+    MasonParams params = MasonParams(name: element.name);
 
     // Iterate over the fields of the class and generate the params file content
     for (final field in element.fields) {
-      final fieldName = field.name;
-      final fieldType = field.type.toString();
-
-      buffer.writeln('const $fieldName = "$fieldType";');
+      params.fields.add(generateFieldMap(field));
     }
 
+    final buffer = StringBuffer();
+    
     return buffer.toString();
   }
 }
