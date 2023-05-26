@@ -12,5 +12,6 @@ class MasonParams {
     this.fields = const [],
   });
 
-
+  factory MasonParams.fromJson(Map<String, dynamic> json) => _$MasonParamsFromJson(json);
+  Map<String, dynamic> toJson() => _$MasonParamsToJson(this);
 }

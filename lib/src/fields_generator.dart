@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:sculptor/src/models/mason_params.dart';
@@ -42,7 +43,7 @@ class FieldsGenerator extends GeneratorForAnnotation<MasonModel> {
     }
 
     final buffer = StringBuffer();
-    
+    buffer.write(json.encode(params.toJson()));
     return buffer.toString();
   }
 }
