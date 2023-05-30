@@ -2,6 +2,6 @@ builders:
   fields_generator:
     import: "package:sculptor/fields_builder.dart"
     builder_factories: ["fieldBuilder"]
-    build_extensions: {".dart": [".yaml"]}
+    build_extensions: {".dart": [".hjson"]}
     auto_apply: dependents
     build_to: source
