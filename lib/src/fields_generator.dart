@@ -19,6 +19,7 @@ class Sculptor extends GeneratorForAnnotation<MasonModel> {
 
   Map<String, dynamic> generateFieldMap(FieldElement element) {
     String type = element.type.getDisplayString(withNullability: false);
+    String uiName = element.documentationComment?.replaceAll("/// ", "") ?? element.name;
     bool isNullable = element.type.nullabilitySuffix == NullabilitySuffix.question;
     bool isEnum = element.type.element!.kind == ElementKind.ENUM;
     bool isClass = !isDartCoreType(element.type) && !isEnum && type != "DateTime";
@@ -29,6 +30,7 @@ class Sculptor extends GeneratorForAnnotation<MasonModel> {
 
     return {
       "fieldName": element.name,
+      "uiName": uiName,
       type: true,
       "nullable": isNullable,
       "enum": isEnum,
